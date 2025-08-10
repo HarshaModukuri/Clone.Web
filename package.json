@@ -1,0 +1,17 @@
+{
+  "name": "oktaclone.web",
+  "version": "1.0.0",
+  "description": "UI assets for OktaClone.Web",
+  "scripts": {
+    "build:css": "tailwindcss -i ./wwwroot/css/app.css -o ./wwwroot/css/app.dist.css",
+    "watch:css": "tailwindcss -i ./wwwroot/css/app.css -o ./wwwroot/css/app.dist.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
+}

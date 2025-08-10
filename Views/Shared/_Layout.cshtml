@@ -1,0 +1,60 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OktaClone.Web</title>
+    <link rel="stylesheet" href="~/css/app.dist.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/OktaClone.Web.styles.css" asp-append-version="true" />
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <header>
+        <nav class="bg-white shadow-lg">
+            <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+                <a class="text-xl font-bold text-gray-800 hover:text-gray-700" asp-area="" asp-controller="Home" asp-action="Index">OktaClone.Web</a>
+                <button class="block lg:hidden text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+                    </svg>
+                </button>
+                <div class="hidden lg:flex lg:items-center lg:w-auto" id="navbar-content">
+                    <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
+                        <li>
+                            <a class="py-2 px-4 block text-gray-700 hover:text-indigo-600" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li>
+                            <a class="py-2 px-4 block text-gray-700 hover:text-indigo-600" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li>
+                            <a class="py-2 px-4 block text-gray-700 hover:text-indigo-600" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a class="py-2 px-4 block text-gray-700 hover:text-indigo-600" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                            </li>
+                        }
+                        <li>
+                            <a class="py-2 px-4 block text-gray-700 hover:text-indigo-600" asp-area="" asp-controller="Chat" asp-action="Index">Chat</a>
+                        </li>
+                    </ul>
+                    <div class="lg:ml-4 flex items-center">
+                        <partial name="_LoginPartial" />
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container mx-auto px-4 sm:px-8 py-8">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/test.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

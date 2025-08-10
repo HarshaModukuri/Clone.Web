@@ -1,0 +1,35 @@
+@model IEnumerable<OktaClone.Web.Models.UserApplication>
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h1>Admin Dashboard</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Application</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.User.FullName</td>
+                <td>@item.Application.Name</td>
+                <td>@item.Status</td>
+                <td>
+                    <form asp-action="Approve" method="post">
+                        <input type="hidden" name="userId" value="@item.UserId" />
+                        <input type="hidden" name="applicationId" value="@item.ApplicationId" />
+                        <button type="submit" class="btn btn-success">Approve</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
